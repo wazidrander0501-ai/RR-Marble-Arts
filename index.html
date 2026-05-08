@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR Marble Arts — Exquisite Marble Craftsmanship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in-up-delay-1': 'fadeInUp 0.8s ease-out 0.2s forwards',
+                        'fade-in-up-delay-2': 'fadeInUp 0.8s ease-out 0.4s forwards',
+                        'fade-in-up-delay-3': 'fadeInUp 0.8s ease-out 0.6s forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                        'marquee': 'marquee 40s linear infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: #000; color: #e5e5e5; overflow-x: hidden; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
+            50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.3); }
+        }
+        @keyframes ripple {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        @keyframes grain {
+            0%, 100% { transform: translate(0,0); }
+            10% { transform: translate(-5%,-10%); }
+            30% { transform: translate(3%,-15%); }
+            50% { transform: translate(12%,9%); }
+            70% { transform: translate(9%,4%); }
+            90% { transform: translate(-1%,7%); }
+        }
+
+        .hero-gradient {
+            background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.08), #000 60%, #000);
+        }
+        .text-gradient {
+            background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.9), rgba(255,255,255,0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #f5f5f4, #d4a574, #f5f5f4, #d4a574);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+        .btn-primary {
+            background: #fff;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 35px rgba(255,255,255,0.2);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #e5e5e5;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            transform: scale(1.03);
+        }
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+        .marble-card-img {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover .marble-card-img {
+            transform: scale(1.08);
+        }
+        .nav-glass {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+        }
+        .gallery-item { position: relative; overflow: hidden; cursor: pointer; }
+        .gallery-item img { transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+            display: flex; align-items: flex-end; padding: 1.5rem;
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .toast {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(12px);
+            padding: 1rem 1.5rem; border-radius: 12px;
+            transform: translateY(120%); opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+
+        .grain-overlay::before {
+            content: '';
+            position: fixed; top: -50%; left: -50%; right: -50%; bottom: -50%;
+            width: 200%; height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            animation: grain 8s steps(10) infinite;
+            pointer-events: none; z-index: 9998; opacity: 0.4;
+        }
+
+        .marble-vein {
+            position: absolute; border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(212,165,116,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+        .lightbox {
+            position: fixed; inset: 0; z-index: 10000;
+            background: rgba(0,0,0,0.95);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .lightbox.active { opacity: 1; pointer-events: all; }
+        .lightbox img {
+            max-width: 90vw; max-height: 85vh;
+            border-radius: 12px;
+            transform: scale(0.9); transition: transform 0.4s ease;
+        }
+        .lightbox.active img { transform: scale(1); }
+
+        .process-line {
+            position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(16,185,129,0.3), transparent);
+        }
+
+        @media (max-width: 768px) {
+            .process-line { left: 20px; }
+        }
+    </style>
+</head>
+<body class="grain-overlay">
+
+    <!-- Navigation -->
+    <nav class="nav-glass fixed top-0 left-0 right-0 z-[100] h-16 flex items-center px-6">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-stone-200 to-stone-500 flex items-center justify-center">
+                    <span class="text-black font-playfair font-bold text-sm">RR</span>
+                </div>
+                <div>
+                    <span class="text-white font-medium text-sm tracking-tight">RR Marble Arts</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-neutral-400 hover:text-white text-sm font-light transition-colors duration-300">About</a>
+                <a href="#collections" class="text-neutral-400 hover:text-white text-sm font-light transition-colors duration-300">Collections</a>
+                <a href="#process" class="text-neutral-400 hover:text-white text-sm font-light transition-colors duration-300">Process</a>
+                <a href="#gallery" class="text-neutral-400 hover:text-white text-sm font-light transition-colors duration-300">Gallery</a>
+                <a href="#testimonials" class="text-neutral-400 hover:text-white text-sm font-light transition-colors duration-300">Testimonials</a>
+                <a href="#contact" class="btn-primary px-5 py-2 rounded-full text-xs font-medium">Get a Quote</a>
+            </div>
+
+            <button id="menuBtn" class="md:hidden text-white p-2">
+                <span class="iconify" data-icon="lucide:menu" data-width="22"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-72 z-[110] bg-black/95 backdrop-blur-xl border-l border-white/5 p-8 pt-20">
+        <button id="closeMenu" class="absolute top-5 right-5 text-white p-2">
+            <span class="iconify" data-icon="lucide:x" data-width="22"></span>
+        </button>
+        <div class="flex flex-col gap-6">
+            <a href="#about" class="text-neutral-300 hover:text-white text-lg font-light transition-colors mobile-link">About</a>
+            <a href="#collections" class="text-neutral-300 hover:text-white text-lg font-light transition-colors mobile-link">Collections</a>
+            <a href="#process" class="text-neutral-300 hover:text-white text-lg font-light transition-colors mobile-link">Process</a>
+            <a href="#gallery" class="text-neutral-300 hover:text-white text-lg font-light transition-colors mobile-link">Gallery</a>
+            <a href="#testimonials" class="text-neutral-300 hover:text-white text-lg font-light transition-colors mobile-link">Testimonials</a>
+            <div class="section-divider my-2"></div>
+            <a href="#contact" class="btn-primary px-6 py-3 rounded-full text-sm font-medium text-center mobile-link">Get a Quote</a>
+        </div>
+    </div>
+    <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-[105] hidden"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="marble-vein w-[600px] h-[600px] -top-40 -right-40 opacity-40"></div>
+        <div class="marble-vein w-[400px] h-[400px] bottom-20 -left-20 opacity-30"></div>
+
+        <!-- Ripple Effects -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-white/5" style="animation: ripple 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-white/5" style="animation: ripple 3s cubic-bezier(0, 0.2, 0.8, 1) infinite; animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-white/5" style="animation: ripple 3s cubic-bezier(0, 0.2, 0.8, 1) infinite; animation-delay: 2s;"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="opacity-0 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
+                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <span class="text-xs font-medium text-neutral-300 tracking-widest uppercase">Since 1998 — Crafting Excellence</span>
+                </div>
+            </div>
+
+            <h1 class="opacity-0 animate-fade-in-up-delay-1 font-playfair text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] tracking-tight mb-6">
+                <span class="text-gradient">Timeless</span><br>
+                <span class="text-gradient-gold">Marble Artistry</span>
+            </h1>
+
+            <p class="opacity-0 animate-fade-in-up-delay-2 text-neutral-400 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-10">
+                Transforming nature's finest stone into breathtaking works of art. From intricate sculptures to majestic architectural elements, every piece tells a story of mastery and passion.
+            </p>
+
+            <div class="opacity-0 animate-fade-in-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#collections" class="btn-primary px-8 py-3.5 rounded-full text-sm font-medium flex items-center gap-2">
+                    Explore Collections
+                    <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+                </a>
+                <a href="#process" class="btn-secondary px-8 py-3.5 rounded-full text-sm font-medium flex items-center gap-2">
+                    <span class="iconify" data-icon="lucide:play-circle" data-width="16"></span>
+                    Watch Our Craft
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="mt-16 md:mt-24 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up-delay-3">
+                <span class="text-[10px] text-neutral-500 uppercase tracking-widest">Scroll</span>
+                <div class="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
+                    <div class="w-1 h-2 bg-white/40 rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="border-y border-white/5 py-4 overflow-hidden">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Italian Carrara</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Indian Makrana</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Calacatta Gold</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Statuario Venato</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Nero Marquina</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Emperador Dark</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Thassos White</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Arabescato</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Italian Carrara</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Indian Makrana</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Calacatta Gold</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Statuario Venato</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Nero Marquina</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Emperador Dark</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Thassos White</span>
+            <span class="mx-4 text-neutral-700">◆</span>
+            <span class="mx-8 text-xs text-neutral-600 uppercase tracking-[0.2em] font-medium">Arabescato</span>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="stat-card rounded-2xl p-6 md:p-8 text-center">
+                    <div class="text-3xl md:text-4xl font-playfair font-semibold text-white mb-2" data-count="25">0</div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-widest">Years Experience</div>
+                </div>
+                <div class="stat-card rounded-2xl p-6 md:p-8 text-center">
+                    <div class="text-3xl md:text-4xl font-playfair font-semibold text-white mb-2" data-count="5000">0</div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-widest">Projects Completed</div>
+                </div>
+                <div class="stat-card rounded-2xl p-6 md:p-8 text-center">
+                    <div class="text-3xl md:text-4xl font-playfair font-semibold text-white mb-2" data-count="40">0</div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-widest">Marble Varieties</div>
+                </div>
+                <div class="stat-card rounded-2xl p-6 md:p-8 text-center">
+                    <div class="text-3xl md:text-4xl font-playfair font-semibold text-white mb-2" data-count="15">0</div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-widest">Countries Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative">
+        <div class="section-divider max-w-7xl mx-auto mb-24"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5]">
+                        <img src="https://picsum.photos/seed/marble-workshop-rr/800/1000.jpg" alt="Marble Workshop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl overflow-hidden border-4 border-black shadow-2xl hidden md:block">
+                        <img src="https://picsum.photos/seed/marble-detail-rr/400/400.jpg" alt="Marble Detail" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -top-4 -left-4 w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center animate-pulse-glow">
+                        <span class="iconify text-emerald-400" data-icon="lucide:award" data-width="28"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="text-xs font-medium text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Our Heritage</span>
+                    <h2 class="font-playfair text-3xl md:text-5xl font-semibold text-white leading-[1.1] tracking-tight mb-6">
+                        Where Stone Meets <span class="text-gradient-gold">Soul</span>
+                    </h2>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-6">
+                        Founded in 1998, RR Marble Arts has been at the forefront of marble craftsmanship for over two decades. Our artisans, trained in the timeless traditions of Indian stone carving combined with modern precision techniques, create pieces that transcend ordinary stonework.
+                    </p>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-8">
+                        Every block of marble that enters our workshop carries millions of years of geological history. We honor that legacy by transforming raw stone into expressions of beauty that will endure for generations.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-emerald-400" data-icon="lucide:gem" data-width="16"></span>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-1">Premium Sourcing</div>
+                                <div class="text-neutral-500 text-xs font-light">Hand-selected from world's finest quarries</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-emerald-400" data-icon="lucide:hand-metal" data-width="16"></span>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-1">Hand Crafted</div>
+                                <div class="text-neutral-500 text-xs font-light">Traditional techniques with modern precision</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-emerald-400" data-icon="lucide:shield-check" data-width="16"></span>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-1">Certified Quality</div>
+                                <div class="text-neutral-500 text-xs font-light">ISO certified processes & materials</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-emerald-400" data-icon="lucide:truck" data-width="16"></span>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-1">Global Delivery</div>
+                                <div class="text-neutral-500 text-xs font-light">Safe shipping to 15+ countries</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium">
+                        Learn More About Us
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="py-24 px-6 relative">
+        <div class="section-divider max-w-7xl mx-auto mb-24"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-medium text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Our Collections</span>
+                <h2 class="font-playfair text-3xl md:text-5xl font-semibold text-white leading-[1.1] tracking-tight mb-4">
+                    Masterpieces in <span class="text-gradient-gold">Stone</span>
+                </h2>
+                <p class="text-neutral-400 font-light max-w-2xl mx-auto">Each collection represents a unique facet of marble artistry, from classical sculptures to contemporary architectural elements.</p>
+            </div>
+
+            <!-- Collection Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button class="collection-tab active px-5 py-2 rounded-full text-xs font-medium bg-white text-black transition-all duration-300" data-filter="all">All Works</button>
+                <button class="collection-tab px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/10 hover:bg-white/10 transition-all duration-300" data-filter="sculptures">Sculptures</button>
+                <button class="collection-tab px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/10 hover:bg-white/10 transition-all duration-300" data-filter="architectural">Architectural</button>
+                <button class="collection-tab px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/10 hover:bg-white/10 transition-all duration-300" data-filter="decorative">Decorative</button>
+                <button class="collection-tab px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/10 hover:bg-white/10 transition-all duration-300" data-filter="custom">Custom</button>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="collectionGrid">
+                <!-- Card 1 -->
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden collection-item" data-category="sculptures">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/seed/marble-goddess/600/750.jpg" alt="Divine Muse" class="marble-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white uppercase tracking-widest">Sculpture</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-medium text-lg mb-1">Divine Muse</h3>
+                        <p class="text-neutral-500 text-sm font-light mb-3">Carrara White Marble • 48" Height</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-emerald-400 text-sm font-medium">₹4,50,000</span>
+                            <button class="text-neutral-500 hover:text-white transition-colors" onclick="showToast('Added to inquiry list')">
+                                <span class="iconify" data-icon="lucide:heart" data-width="18"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden collection-item" data-category="architectural">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/seed/marble-column/600/750.jpg" alt="Corinthian Column" class="marble-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white uppercase tracking-widest">Architectural</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-medium text-lg mb-1">Corinthian Column Pair</h3>
+                        <p class="text-neutral-500 text-sm font-light mb-3">Calacatta Gold • 72" Height</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-emerald-400 text-sm font-medium">₹8,75,000</span>
+                            <button class="text-neutral-500 hover:text-white transition-colors" onclick="showToast('Added to inquiry list')">
+                                <span class="iconify" data-icon="lucide:heart" data-width="18"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden collection-item" data-category="decorative">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/seed/marble-vase-rr/600/750.jpg" alt="Eternal Vase" class="marble-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white uppercase tracking-widest">Decorative</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-medium text-lg mb-1">Eternal Vase</h3>
+                        <p class="text-neutral-500 text-sm font-light mb-3">Statuario Venato • 24" Height</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-emerald-400 text-sm font-medium">₹1,25,000</span>
+                            <button class="text-neutral-500 hover:text-white transition-colors" onclick="showToast('Added to inquiry list')">
+                                <span class="iconify" data-icon="lucide:heart" data-width="18"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden collection-item" data-category="sculptures">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/seed/marble-buddha-rr/600/750.jpg" alt="Serenity Buddha" class="marble-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white uppercase tracking-widest">Sculpture</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-medium text-lg mb-1">Serenity Buddha</h3>
+                        <p class="text-neutral-500 text-sm font-light mb-3">Makrana White • 36" Height</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-emerald-400 text-sm font-medium">₹3,20,000</span>
+                            <button class="text-neutral-500 hover:text-white transition-colors" onclick="showToast('Added to inquiry list')">
+                                <span class="iconify" data-icon="lucide:heart" data-width="18"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden collection-item" data-category="custom">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/seed/marble-fireplace/600/750.jpg" alt="Royal Fireplace" class="marble-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white uppercase tracking-widest">Custom</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-medium text-lg mb-1">Royal Fireplace Mantel</h3>
+                        <p class="text-neutral-500 text-sm font-light mb-3">Nero Marquina • Custom Size</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-emerald-400 text-sm font-medium">On Request</span>
+                            <button class="text-neutral-500 hover:text-white transition-colors" onclick="showToast('Added to inquiry list')">
+                                <span class="iconify" data-icon="lucide:heart" data-width="18"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden collection-item" data-category="architectural">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/seed/marble-fountain-rr/600/750.jpg" alt="Cascade Fountain" class="marble-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white uppercase tracking-widest">Architectural</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-medium text-lg mb-1">Cascade Fountain</h3>
+                        <p class="text-neutral-500 text-sm font-light mb-3">Thassos White • 60" Diameter</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-emerald-400 text-sm font-medium">₹6,80,000</span>
+                            <button class="text-neutral-500 hover:text-white transition-colors" onclick="showToast('Added to inquiry list')">
+                                <span class="iconify" data-icon="lucide:heart" data-width="18"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 px-6 relative">
+        <div class="section-divider max-w-7xl mx-auto mb-24"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-xs font-medium text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Our Process</span>
+                <h2 class="font-playfair text-3xl md:text-5xl font-semibold text-white leading-[1.1] tracking-tight mb-4">
+                    From Raw Stone to <span class="text-gradient-gold">Art</span>
+                </h2>
+                <p class="text-neutral-400 font-light max-w-2xl mx-auto">Every masterpiece follows a meticulous journey, guided by the hands of master craftsmen who understand the soul of stone.</p>
+            </div>
+
+            <div class="relative">
+                <div class="process-line hidden md:block"></div>
+                <div class="space-y-16 md:space-y-24">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 md:text-right md:pr-16">
+                            <span class="text-emerald-400 text-xs font-medium uppercase tracking-widest">Step 01</span>
+                            <h3 class="font-playfair text-2xl font-semibold text-white mt-2 mb-3">Stone Selection</h3>
+                            <p class="text-neutral-400 font-light text-sm leading-relaxed">We personally visit quarries across Italy, India, and Greece to hand-select blocks with the finest grain, color consistency, and structural integrity.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 items-center justify-center z-10">
+                            <span class="iconify text-emerald-400" data-icon="lucide:search" data-width="16"></span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://picsum.photos/seed/quarry-select/700/400.jpg" alt="Stone Selection" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 md:text-left md:pl-16">
+                            <span class="text-emerald-400 text-xs font-medium uppercase tracking-widest">Step 02</span>
+                            <h3 class="font-playfair text-2xl font-semibold text-white mt-2 mb-3">Design & Blueprint</h3>
+                            <p class="text-neutral-400 font-light text-sm leading-relaxed">Our designers create detailed blueprints using 3D modeling, considering the natural veining and character of each stone block to maximize its beauty.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 items-center justify-center z-10">
+                            <span class="iconify text-emerald-400" data-icon="lucide:pen-tool" data-width="16"></span>
+                        </div>
+                        <div class="md:w-1/2 md:pr-16">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://picsum.photos/seed/marble-blueprint/700/400.jpg" alt="Design" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 md:text-right md:pr-16">
+                            <span class="text-emerald-400 text-xs font-medium uppercase tracking-widest">Step 03</span>
+                            <h3 class="font-playfair text-2xl font-semibold text-white mt-2 mb-3">Master Carving</h3>
+                            <p class="text-neutral-400 font-light text-sm leading-relaxed">Our artisans, some with 30+ years of experience, shape each piece using a combination of traditional hand tools and precision CNC machinery.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 items-center justify-center z-10">
+                            <span class="iconify text-emerald-400" data-icon="lucide:hammer" data-width="16"></span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://picsum.photos/seed/marble-carving-rr/700/400.jpg" alt="Carving" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2 md:text-left md:pl-16">
+                            <span class="text-emerald-400 text-xs font-medium uppercase tracking-widest">Step 04</span>
+                            <h3 class="font-playfair text-2xl font-semibold text-white mt-2 mb-3">Finishing & Delivery</h3>
+                            <p class="text-neutral-400 font-light text-sm leading-relaxed">Rigorous quality inspection, hand-polishing to achieve the perfect finish, and secure custom crating for safe global delivery to your doorstep.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 items-center justify-center z-10">
+                            <span class="iconify text-emerald-400" data-icon="lucide:package-check" data-width="16"></span>
+                        </div>
+                        <div class="md:w-1/2 md:pr-16">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://picsum.photos/seed/marble-finish-rr/700/400.jpg" alt="Finishing" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 px-6 relative">
+        <div class="section-divider max-w-7xl mx-auto mb-24"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-medium text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Gallery</span>
+                <h2 class="font-playfair text-3xl md:text-5xl font-semibold text-white leading-[1.1] tracking-tight mb-4">
+                    A Glimpse of <span class="text-gradient-gold">Excellence</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-1/500/500.jpg" alt="Gallery 1" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Temple Entrance</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square md:col-span-2 md:row-span-2" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-2/1000/1000.jpg" alt="Gallery 2" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <div>
+                            <span class="text-white text-lg font-medium">Grand Lobby Installation</span>
+                            <p class="text-neutral-300 text-xs mt-1">Rajasthan Palace Project</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-3/500/500.jpg" alt="Gallery 3" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Elephant Sculpture</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-4/500/500.jpg" alt="Gallery 4" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Floral Medallion</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-5/500/500.jpg" alt="Gallery 5" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Jali Screen</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-6/500/500.jpg" alt="Gallery 6" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Garden Bench</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-7/500/500.jpg" alt="Gallery 7" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Wall Panel</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-8/500/500.jpg" alt="Gallery 8" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Mandir Setup</span>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl aspect-square" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/gal-marble-9/500/500.jpg" alt="Gallery 9" class="w-full h-full object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
+                        <span class="text-white text-sm font-medium">Table Top</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-10">
+            <span class="iconify" data-icon="lucide:x" data-width="28"></span>
+        </button>
+        <img src="" alt="Lightbox" id="lightboxImg">
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 px-6 relative">
+        <div class="section-divider max-w-7xl mx-auto mb-24"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-medium text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Testimonials</span>
+                <h2 class="font-playfair text-3xl md:text-5xl font-semibold text-white leading-[1.1] tracking-tight mb-4">
+                    Words from Our <span class="text-gradient-gold">Clients</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] p-8">
+                    <div class="flex gap-1 mb-4">
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                    </div>
+                    <p class="text-neutral-300 font-light text-sm leading-relaxed mb-6">"RR Marble Arts created a stunning temple entrance for our home. The level of detail in the carvings is absolutely breathtaking. Every visitor is left speechless. Truly world-class craftsmanship."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-stone-300 to-stone-600 flex items-center justify-center">
+                            <span class="text-black text-xs font-semibold">RS</span>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">Rajesh Sharma</div>
+                            <div class="text-neutral-500 text-xs">Homeowner, Jaipur</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] p-8">
+                    <div class="flex gap-1 mb-4">
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                    </div>
+                    <p class="text-neutral-300 font-light text-sm leading-relaxed mb-6">"We commissioned 12 custom columns for our hotel lobby in Dubai. The team delivered beyond expectations — on time, within budget, and with a finish that rivals anything we've seen in Europe."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-300 to-emerald-600 flex items-center justify-center">
+                            <span class="text-black text-xs font-semibold">AK</span>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">Ahmed Al-Khalidi</div>
+                            <div class="text-neutral-500 text-xs">Hotelier, Dubai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-white/5 bg-white/[0.02] p-8">
+                    <div class="flex gap-1 mb-4">
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                        <span class="iconify text-amber-400" data-icon="lucide:star" data-width="16"></span>
+                    </div>
+                    <p class="text-neutral-300 font-light text-sm leading-relaxed mb-6">"As an interior designer, I've worked with many marble vendors. RR Marble Arts stands apart for their artistic vision and ability to translate concepts into reality. My go-to for luxury projects."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-300 to-violet-600 flex items-center justify-center">
+                            <span class="text-white text-xs font-semibold">PM</span>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">Priya Mehta</div>
+                            <div class="text-neutral-500 text-xs">Interior Designer, Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="contact" class="py-24 px-6 relative">
+        <div class="section-divider max-w-7xl mx-auto mb-24"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden">
+                <!-- Background -->
+                <div class="absolute inset-0">
+                    <img src="https://picsum.photos/seed/marble-bg-cta/1400/800.jpg" alt="" class="w-full h-full object-cover opacity-20">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"></div>
+                </div>
+
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 p-8 md:p-16">
+                    <div>
+                        <span class="text-xs font-medium text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Start Your Project</span>
+                        <h2 class="font-playfair text-3xl md:text-4xl font-semibold text-white leading-[1.1] tracking-tight mb-4">
+                            Let's Create Something <span class="text-gradient-gold">Extraordinary</span>
+                        </h2>
+                        <p class="text-neutral-400 font-light leading-relaxed mb-8">
+                            Whether you have a clear vision or just a spark of inspiration, our team is ready to bring your marble dreams to life. Share your ideas and we'll craft a personalized proposal.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-emerald-400" data-icon="lucide:map-pin" data-width="16"></span>
+                                </div>
+                                <div>
+                                    <div class="text-white text-sm font-medium">Workshop & Showroom</div>
+                                    <div class="text-neutral-500 text-xs">Industrial Area, Kishangarh, Rajasthan 305801</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-emerald-400" data-icon="lucide:phone" data-width="16"></span>
+                                </div>
+                                <div>
+                                    <div class="text-white text-sm font-medium">Call Us</div>
+                                    <div class="text-neutral-500 text-xs">+91 98290 XXXXX</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-emerald-400" data-icon="lucide:mail" data-width="16"></span>
+                                </div>
+                                <div>
+                                    <div class="text-white text-sm font-medium">Email</div>
+                                    <div class="text-neutral-500 text-xs">info@rrmarblearts.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs text-neutral-500 mb-1.5 block">First Name *</label>
+                                <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500/50 transition-colors" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="text-xs text-neutral-500 mb-1.5 block">Last Name *</label>
+                                <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500/50 transition-colors" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs text-neutral-500 mb-1.5 block">Email *</label>
+                            <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500/50 transition-colors" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="text-xs text-neutral-500 mb-1.5 block">Phone</label>
+                            <input type="tel" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500/50 transition-colors" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div>
+                            <label class="text-xs text-neutral-500 mb-1.5 block">Project Type</label>
+                            <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-neutral-400 focus:outline-none focus:border-emerald-500/50 transition-colors appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 fill=%22%23737373%22 viewBox=%220 0 16 16%22><path d=%22M8 11L3 6h10l-5 5z%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+                                <option value="">Select project type</option>
+                                <option value="sculpture">Sculpture</option>
+                                <option value="architectural">Architectural Element</option>
+                                <option value="decorative">Decorative Piece</option>
+                                <option value="mandir">Temple / Mandir</option>
+                                <option value="furniture">Marble Furniture</option>
+                                <option value="custom">Custom Project</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs text-neutral-500 mb-1.5 block">Tell Us About Your Vision</label>
+                            <textarea rows="3" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500/50 transition-colors resize-none" placeholder="Describe your project, preferred marble type, dimensions..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+                            Send Inquiry
+                            <span class="iconify" data-icon="lucide:send" data-width="16"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-2.5 mb-5">
+                        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-stone-200 to-stone-500 flex items-center justify-center">
+                            <span class="text-black font-playfair font-bold text-sm">RR</span>
+                        </div>
+                        <span class="text-white font-medium text-sm">RR Marble Arts</span>
+                    </div>
+                    <p class="text-neutral-500 text-sm font-light leading-relaxed mb-5">Transforming nature's finest marble into timeless works of art since 1998.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:bg-white/10 transition-all">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="16"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:bg-white/10 transition-all">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="16"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:bg-white/10 transition-all">
+                            <span class="iconify" data-icon="lucide:youtube" data-width="16"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:bg-white/10 transition-all">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-medium mb-5">Collections</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Sculptures</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Architectural Elements</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Decorative Pieces</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Temple & Mandir</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Marble Furniture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-medium mb-5">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Our Process</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Marble Guide</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Press & Media</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-medium mb-5">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Care & Maintenance</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">Return Policy</a></li>
+                        <li><a href="#" class="text-neutral-500 text-sm font-light hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-divider mb-8"></div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-neutral-600 text-xs font-light">© 2024 RR Marble Arts. All rights reserved. Crafted with passion in Kishangarh, Rajasthan.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-neutral-600 text-xs font-light hover:text-neutral-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-neutral-600 text-xs font-light hover:text-neutral-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-neutral-600 text-xs font-light hover:text-neutral-400 transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center gap-3">
+            <span class="iconify text-emerald-400" data-icon="lucide:check-circle" data-width="18"></span>
+            <span class="text-sm text-white" id="toastMessage">Action completed</span>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 left-8 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:bg-white/10 transition-all opacity-0 pointer-events-none z-50" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+        <span class="iconify" data-icon="lucide:chevron-up" data-width="18"></span>
+    </button>
+
+    <script>
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            menuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            menuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Toast
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Collection Filter
+        const tabs = document.querySelectorAll('.collection-tab');
+        const items = document.querySelectorAll('.collection-item');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-white', 'text-black');
+                    t.classList.add('bg-white/5', 'text-neutral-400', 'border', 'border-white/10');
+                });
+                tab.classList.remove('bg-white/5', 'text-neutral-400', 'border', 'border-white/10');
+                tab.classList.add('bg-white', 'text-black');
+
+                const filter = tab.dataset.filter;
+                items.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = '';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Thank you! Your inquiry has been sent. We\'ll contact you within 24 hours.');
+            e.target.reset();
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.count);
+                const duration = 2000;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(eased * target);
+
+                    if (target >= 1000) {
+                        counter.textContent = current.toLocaleString() + '+';
+                    } else {
+                        counter.textContent = current + '+';
+                    }
+
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+        let counterAnimated = false;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+
+                    if (entry.target.querySelector('[data-count]') && !counterAnimated) {
+                        counterAnimated = true;
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card, .card-hover, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.style.opacity = '1';
+                backToTop.style.pointerEvents = 'all';
+                backToTop.style.transform = 'translateY(0)';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+                backToTop.style.transform = 'translateY(10px)';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0,0,0,0.85)';
+            } else {
+                nav.style.background = 'rgba(0,0,0,0.6)';
+            }
+        });
+    </script>
+</body>
+</html>
